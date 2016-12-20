@@ -26,6 +26,7 @@ public class FindHook {
         for (ApplicationInfo applicationInfo : applicationInfoList) {
             //full packagename : de.robv.android.xposed.installer
             if (applicationInfo.packageName.contains("xposed.installer")) {
+                Log.d("FindHook", "has xposed ");
                 return true;
             }
             if (applicationInfo.packageName.equals("com.saurik.substrate")) {
@@ -78,6 +79,7 @@ public class FindHook {
     }
 
     public static boolean isHook(Context context) {
+
         if (findHookAppName(context) || findHookAppFile()||findHookAppDataDir() ) {
             return true;
         }
